@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!--Google Fonts: Roboto-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+        
+        <!--Google Fonts: Permanent Marker-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+        
+        <!--CSS styles-->
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body class="characterBody">
+        <header class="header">
+            <!--INSERT CODE FOR HEADER WHICH IS COMMON TO ALL PAGES-->
+            <h1 class="header__heading">
+                CHARACTER MANAGER
+            </h1>
+            <hr>
+        </header>
+        <main class="createPage">
+            <section class="createPage__createContainer container">
+                <img src="#" alt="Preview" class="createContainer__img">
+                <!--ACTION, METHOD TO BE SPECIFIED-->
+                <form action="" method="" class="createContainer__form form">
+                    <label for="image">Upload image</label><br>
+                    <input type="file" name="image" id="image" class="input--hidden">
+                    <input type="text" name="name" id="name" placeholder="Enter your character's name. Example: Batman">
+                    <input type="text" name="shortDescription" id="shortDescription" placeholder="Enter a short description of your character.">
+                    <input type="text" name="longDescription" id="description" placeholder="Enter the full description of your character.">
+                    <div class="form__buttons">
+                        <button type="button" class="form__button button button--italicBlue" id="update">
+                            Save changes
+                        </button>
+                        <button type="button" class="form__button button button--italicRed" id="delete">
+                            Delete Character
+                        </button>
+                    </div>
+                </form>
+            </section>
+        </main>
+        <footer>
+
+        </footer>
+    </body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!--Google Fonts: Roboto-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+        
+        <!--Google Fonts: Permanent Marker-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+        
+        <!--CSS styles-->
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body class="characterBody">
+        <header class="header">
+            <!--INSERT CODE FOR HEADER WHICH IS COMMON TO ALL PAGES-->
+            <h1 class="header__heading">
+                CHARACTER MANAGER
+            </h1>
+            <hr>
+        </header>
+        <main class="characterPage">
+            <section class="characterPage__container container">
+                <article class="container__characterCard characterCard">
+                    <img class="characterCard__image" src="/images/150-images/batman.jpg" alt="character image">
+                    <br>
+                    <h1 class="characterCard__heading">
+                        Character Fullname
+                    </h1>
+                    <br>
+                    <p class="characterCard__descriptionShort">
+                        Character Short Description. <br>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, fuga.
+                    </p>
+                    <br>
+                    <p class="characterCard__descriptionLong">
+                        Character Long Description. <br>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas accusantium ipsam magnam nihil deleniti facere voluptatem placeat repellat voluptatibus vero.
+                    </p>
+                    <br>
+                </article>
+                <div class="container__cardActions cardActions">
+                    <button type="button" class="cardActions__button button button--italicBlue" id="update">
+                        Update Character
+                    </button>
+                    <button type="button" class="cardActions__button button button--italicRed" id="delete">
+                        Delete Character
+                    </button>
+                </div>
+            </section>
+        </main>
+        <footer>
+
+        </footer>
+    </body>
+</html>
