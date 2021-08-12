@@ -1,32 +1,49 @@
-const inputs = Array.from(document.querySelectorAll("input"));
-console.log(inputs);
+// Retrieving image File from user's input in the form
+// const inputFile = document.querySelector('input[type=file]');
+var dataURL="test";
+console.log(dataURL);
 
-const imageToDataURL = async () =>{
-
-    // Retrieving image File from user input in the form
-    let fileList = document.getElementById("image");
-    let file=fileList.files[0];
-
-    // Create a Promise to convert 'File' to 'string Base64'
-    const toBase64 = (file) =>{
-        reader = new FileReader();
-        return new Promise ((resolve,reject) => {
-            reader.onerror = () => {
-                reader.abort();
-                reject(new DOMException("Problem parsing input file."))
-            };
-            reader.onload = () => {
-                resolve(reader.result);
-                console.log(reader.result);
-            };
-            reader.readAsDataURL(file);
-        });
-    };
-
-    // Asynchronous function awaits for the Promise to resolve and return the proper data URL
-    const dataURL= await toBase64(file);
-    return dataURL;
+function previewFile() {
+    const preview = document.querySelector('img');
+    const file = document.querySelector('input[type=file]').files[0];
+    const reader = new FileReader();
+    reader.addEventListener("load", function () {
+      // convert image file to base64 string
+      preview.src = reader.result;
+      dataURL=reader.result;
+      console.log(dataURL);
+    }, false);
+  
+    if (file) {
+      reader.readAsDataURL(file);
+    }
 };
+
+// const inputs = Array.from(document.querySelectorAll("input"));
+// console.log(inputs);
+
+// // Create a Promise to convert 'File' to 'string Base64'
+// const toBase64 = (file) =>{
+//     const reader = new FileReader();
+//     return new Promise ((resolve,reject) => {
+//         reader.onerror = () => {
+//             reader.abort();
+//             reject(new DOMException("Problem parsing input file."))
+//         };
+//         reader.onload = () => {
+//             resolve(reader.result);
+//         };
+//         reader.readAsDataURL(file);
+//     });
+// };
+
+// toBase64().then((result)=>console.log(result))
+
+// const imageToDataURL = async () =>{
+//     const inputFile = document.querySelector('input[type=file]').files[0];
+//     // Asynchronous function awaits for the Promise to resolve and return the proper data URL
+//     dataURL= await toBase64(inputFile);
+// };
 // console.log(dataURL);
 
 //     let values = inputs.map(({ value }) => {
@@ -56,4 +73,4 @@ const imageToDataURL = async () =>{
 //         body: JSON.stringify({name, shortDescription, image, description }),
 //       });
 const button_Run=document.getElementById("save");
-button_Run.addEventListener("click",imageToDataURL);
+button_Run.addEventListener("click",);

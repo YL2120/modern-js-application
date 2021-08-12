@@ -16,6 +16,11 @@
         
         <!--CSS styles-->
         <link rel="stylesheet" href="style.css">
+
+        <!--JS script-->
+        <script src="create.js"></script>
+
+        <title>Create a new Character</title>
     </head>
     <body class="characterBody">
         <header class="header">
@@ -29,11 +34,11 @@
         </header>
         <main class="createPage">
             <section class="createPage__createContainer container">
-                <img src="#" alt="Preview" class="createContainer__imgPreview">
+                <img src="" alt="Preview" class="createContainer__imgPreview imgPreview">
                 <!--ACTION, METHOD TO BE SPECIFIED-->
                 <form action="" method="" class="createContainer__form form">
                     <label for="image">Upload image</label><br>
-                    <input type="file" name="image" id="image" class="input--hidden">
+                    <input type="file" name="image" id="image" onchange="previewFile()" class="imgInput input--hidden">
                     <input type="text" name="name" id="name" class="textInput" maxlength="20" placeholder="Enter your character's name. Example: Batman" >
                     <input type="text" name="shortDescription" id="shortDescription" class="textInput" maxlength="70" placeholder="Enter a short description of your character." >
                     <input type="text" name="longDescription" id="description" class="textInput" maxlength="350" placeholder="Enter the full description of your character.">
@@ -51,6 +56,5 @@
         <footer>
 
         </footer>
-        <script src="create.js"></script>
     </body>
 </html>
