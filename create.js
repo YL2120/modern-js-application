@@ -1,24 +1,34 @@
-const createCharacter = () =>{
+const inputs = Array.from(document.querySelectorAll("input"));
+console.log(inputs);
 
-    // Retrieveing image file from user input in the form //
-    let fileInput = document.getElementById("image");
-    let reader = new FileReader();
-    reader.readAsDataURL(fileInput.files[0]);
-    reader.result=reader.onload;
-    // reader.onload = function () {
-    //     reader.result;//base64encoded string
-    // };
-    reader.onerror = function (error) {
-        console.log('Error: ', error);
+const imageToDataURL = async () =>{
+
+    // Retrieving image File from user input in the form
+    let fileList = document.getElementById("image");
+    let file=fileList.files[0];
+
+    // Create a Promise to convert 'File' to 'string Base64'
+    const toBase64 = (file) =>{
+        reader = new FileReader();
+        return new Promise ((resolve,reject) => {
+            reader.onerror = () => {
+                reader.abort();
+                reject(new DOMException("Problem parsing input file."))
+            };
+            reader.onload = () => {
+                resolve(reader.result);
+                console.log(reader.result);
+            };
+            reader.readAsDataURL(file);
+        });
     };
 
-    let inputs = Array.from(document.querySelectorAll("textInput"));
-    inputs.push(reader.result);
-    console.log(inputs);
+    // Asynchronous function awaits for the Promise to resolve and return the proper data URL
+    const dataURL= await toBase64(file);
+    return dataURL;
+};
+// console.log(dataURL);
 
-    // inputs.forEach((input)=>{
-    //     console.log(input.textContent);}
-    //     );
 //     let values = inputs.map(({ value }) => {
 //       return value.trim();
 //     });
@@ -45,7 +55,5 @@ const createCharacter = () =>{
 //         },
 //         body: JSON.stringify({name, shortDescription, image, description }),
 //       });
-
-};
 const button_Run=document.getElementById("save");
-button_Run.addEventListener("click",createCharacter);
+button_Run.addEventListener("click",imageToDataURL);
