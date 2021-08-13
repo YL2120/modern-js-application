@@ -1,6 +1,32 @@
 // Retrieving image File from user's input in the form
 // const inputFile = document.querySelector('input[type=file]');
-var dataURL="test";
+
+const imgtodata=()=>{
+const reader = new FileReader();
+reader.readAsDataURL(document.querySelector('input[type="file"]').files[0]);
+reader.onload = () => storeResults(reader.result);
+
+// callback function
+function storeResults(result) {
+  let dataURL = result;
+  console.log(dataURL);
+
+}
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+/*var dataURL="test";
 console.log(dataURL);
 
 function previewFile() {
@@ -17,7 +43,7 @@ function previewFile() {
     if (file) {
       reader.readAsDataURL(file);
     }
-};
+};*/
 
 // const inputs = Array.from(document.querySelectorAll("input"));
 // console.log(inputs);
@@ -73,4 +99,4 @@ function previewFile() {
 //         body: JSON.stringify({name, shortDescription, image, description }),
 //       });
 const button_Run=document.getElementById("save");
-button_Run.addEventListener("click",);
+button_Run.addEventListener("click",imgtodata);
