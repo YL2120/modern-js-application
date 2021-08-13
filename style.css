@@ -227,6 +227,7 @@ h1 {
 
 input {
   padding:0.5rem;
+  color:black; /* TO BE RESET TO WHITE ONCE OVERALL STYLING DONE*/
 }
 
 .input--hidden{
