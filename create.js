@@ -1,6 +1,20 @@
 // Retrieving image File from user's input in the form
 // const inputFile = document.querySelector('input[type=file]');
 
+function previewFile() {
+    const preview = document.querySelector('img');
+    const file = document.querySelector('input[type=file]').files[0];
+    const reader = new FileReader();
+    reader.addEventListener("load", function () {
+      // convert image file to base64 string
+      preview.src = reader.result;
+    }, false);
+  
+    if (file) {
+      reader.readAsDataURL(file);
+    }
+};
+
 const imgtodata=()=>{
 const reader = new FileReader();
 reader.readAsDataURL(document.querySelector('input[type="file"]').files[0]);
@@ -21,29 +35,6 @@ function storeResults(result) {
 
 
 
-
-
-
-
-
-/*var dataURL="test";
-console.log(dataURL);
-
-function previewFile() {
-    const preview = document.querySelector('img');
-    const file = document.querySelector('input[type=file]').files[0];
-    const reader = new FileReader();
-    reader.addEventListener("load", function () {
-      // convert image file to base64 string
-      preview.src = reader.result;
-      dataURL=reader.result;
-      console.log(dataURL);
-    }, false);
-  
-    if (file) {
-      reader.readAsDataURL(file);
-    }
-};*/
 
 // const inputs = Array.from(document.querySelectorAll("input"));
 // console.log(inputs);
