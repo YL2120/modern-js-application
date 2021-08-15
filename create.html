@@ -31,19 +31,19 @@
         </header>
         <main class="createPage">
             <section class="createPage__createContainer container">
-                <img src="" alt="Preview" class="createContainer__imgPreview imgPreview">
-                <!--ACTION, METHOD TO BE SPECIFIED-->
-                <form action="" method="" class="createContainer__form form" > <!-- enctype="multipart/form-data" -->
-                    <label for="image">Upload image</label><br>
-                    <input type="file" name="image" id="image" onchange="previewFile()" class="imgInput input--hidden">
+                <img src="" id="preview" class="createContainer__imgPreview" alt="Preview" >
+                <form action="" method="POST" id="createForm" class="createContainer__form form" >
+                    <label for="file">Upload image</label><br>
+                    <input type="file" name="file" id="file" class="input--hidden">
+                    <input type="text" name="image" id="image" class="textInput dataSegment > <!--class="input--hidden"-->
                     <input type="text" name="name" id="name" class="textInput" maxlength="20" placeholder="Enter your character's name. Example: Batman" >
                     <input type="text" name="shortDescription" id="shortDescription" class="textInput" maxlength="70" placeholder="Enter a short description of your character." >
-                    <input type="text" name="longDescription" id="description" class="textInput" maxlength="350" placeholder="Enter the full description of your character.">
-                    <div class="form__buttons">
-                        <button type="submit" class="form__button button button--italicBlue" id="save">
+                    <input type="text" name="longDescription" id="description" class="textInput" maxlength="350" placeholder="Enter the full description of your character." >
+                    <div class="from__buttons">
+                        <button type="button" class="form__button button button--italicBlue" id="save">
                             Save changes
                         </button>
-                        <button type="submit" class="form__button button button--italicRed" id="delete">
+                        <button type="button" class="form__button button button--italicRed" id="delete">
                             Delete Character
                         </button>
                     </div>
@@ -55,6 +55,6 @@
         </footer>
 
         <!--JS script-->
-        <script src="create.js"></script>
+        <script src="create-test.js"></script>
     </body>
 </html>
