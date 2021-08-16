@@ -32,8 +32,8 @@
     <hr class="charhead__division" />
 
     <main class="charmain">
-      <section class="charmain__cards">
-        <div class="charmain__carditem">
+      <section id="target"  class="charmain__cards">
+        <!-- <div class="charmain__carditem">
           <div class="card__flex">
             <div class="charmain__img-div">
               <img
@@ -50,7 +50,9 @@
             </p>
           </div>
           <button class="charmain__bio--button" type="button">
-            <a href="character.html" class="charmain__bio--link" target="blank">See character</a>
+            <a href="character.html" class="charmain__bio--link" target="blank"
+              >See character</a
+            >
           </button>
         </div>
 
@@ -65,7 +67,9 @@
             dessert cake.
           </p>
           <button class="charmain__bio--button" type="button">
-            <a href="character.html" class="charmain__bio--link" target="blank">See character</a>
+            <a href="character.html" class="charmain__bio--link" target="blank"
+              >See character</a
+            >
           </button>
         </div>
 
@@ -80,7 +84,9 @@
             dessert cake.
           </p>
           <button class="charmain__bio--button" type="button">
-            <a href="character.html" class="charmain__bio--link" target="blank">See character</a>
+            <a href="character.html" class="charmain__bio--link" target="blank"
+              >See character</a
+            >
           </button>
         </div>
 
@@ -95,7 +101,9 @@
             dessert cake.
           </p>
           <button class="charmain__bio--button" type="button">
-            <a href="character.html" class="charmain__bio--link" target="blank">See character</a>
+            <a href="character.html" class="charmain__bio--link" target="blank"
+              >See character</a
+            >
           </button>
         </div>
 
@@ -114,7 +122,9 @@
             dessert cake.
           </p>
           <button class="charmain__bio--button" type="button">
-            <a href="character.html" class="charmain__bio--link" target="blank">See character</a>
+            <a href="character.html" class="charmain__bio--link" target="blank"
+              >See character</a
+            >
           </button>
         </div>
 
@@ -133,7 +143,9 @@
             dessert cake.
           </p>
           <button class="charmain__bio--button" type="button">
-            <a href="character.html" class="charmain__bio--link" target="blank">See character</a>
+            <a href="character.html" class="charmain__bio--link" target="blank"
+              >See character</a
+            >
           </button>
         </div>
 
@@ -148,7 +160,9 @@
             dessert cake.
           </p>
           <button class="charmain__bio--button" type="button">
-            <a href="character.html" class="charmain__bio--link" target="blank">See character</a>
+            <a href="character.html" class="charmain__bio--link" target="blank"
+              >See character</a
+            >
           </button>
         </div>
 
@@ -163,9 +177,30 @@
             dessert cake.
           </p>
           <button class="charmain__bio--button" type="button">
-            <a href="character.html" class="charmain__bio--link" target="blank">See character</a>
+            <a href="character.html" class="charmain__bio--link" target="blank"
+              >See character</a
+            >
           </button>
-        </div>
+        </div> -->
+
+        <template id="charnew">
+          <div class="charmain__carditem">
+            <div class="charmain__img-div">
+              <img src="" alt="" class="charmain__img" />
+            </div>
+            <h2 class="charmain__title"></h2>
+            <p class="charmain__bio"></p>
+            <button class="charmain__bio--button" type="button">
+              <a
+                href="character.html"
+                class="charmain__bio--link"
+                target="blank"
+              >See character</a>
+            </button>
+          </div>
+        </template>
+
+        
       </section>
     </main>
 
@@ -176,5 +211,6 @@
         </a>
       </button>
     </footer>
+    <script src="list.js"></script>
   </body>
 </html>
