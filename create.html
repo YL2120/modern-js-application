@@ -23,7 +23,7 @@
         <header class="header">
             <!--INSERT CODE FOR HEADER WHICH IS COMMON TO ALL PAGES-->
             <h1 class="header__heading">
-                <a href="index.html" target="_blank">
+                <a class="charhead__title--link" href="index.html" target="_blank">
                     CHARACTER MANAGER
                 </a>
             </h1>
@@ -31,11 +31,13 @@
         </header>
         <main class="createPage">
             <section class="createPage__createContainer container">
-                <img src="" id="preview" class="createContainer__imgPreview" alt="Preview" >
+                <div id="preview" class="createContainer__imgPreview imgPreview">
+                    <p>Preview</p>
+                </div>
                 <form action="" method="POST" id="createForm" class="createContainer__form form" >
-                    <label for="file">Upload image</label><br>
+                    <label for="file"><strong>Click here to upload image</strong></label><br>
                     <input type="file" name="file" id="file" class="input--hidden">
-                    <input type="text" name="image" id="image" class="textInput dataSegment > <!--class="input--hidden"-->
+                    <input type="text" name="image" id="image" class="textInput dataSegment input--hidden">
                     <input type="text" name="name" id="name" class="textInput" maxlength="20" placeholder="Enter your character's name. Example: Batman" >
                     <input type="text" name="shortDescription" id="shortDescription" class="textInput" maxlength="70" placeholder="Enter a short description of your character." >
                     <input type="text" name="longDescription" id="description" class="textInput" maxlength="350" placeholder="Enter the full description of your character." >
@@ -43,8 +45,8 @@
                         <button type="button" class="form__button button button--italicBlue" id="save">
                             Save changes
                         </button>
-                        <button type="button" class="form__button button button--italicRed" id="delete">
-                            Delete Character
+                        <button type="reset" class="form__button button button--italicRed" id="reset">
+                            Reset form
                         </button>
                     </div>
                 </form>

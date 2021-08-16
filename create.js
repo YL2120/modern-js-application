@@ -9,10 +9,10 @@ const FILE_INPUT = document.getElementById("file");
 const IMAGE_DATA = document.getElementById("image");
 const READER = new FileReader();
 const SAVE_BUTTON = document.getElementById("save");
-const DELETE_BUTTON = document.getElementById("delete");
-let CHARACTER_ID="test";
+const RESET_BUTTON = document.getElementById("reset");
 
-// Creating a function that receives a file object and returns a Promise which resolves with the dataURL (contained in the 'PREVIEW.result' property).
+// Creating a function that receives a file object and returns a Promise which resolves with the dataURL (contained in the 'READER.result' property).
+
 const fileToDataURL = (file) => {
   return new Promise((resolve,reject)=>{
     READER.readAsDataURL(file);
@@ -25,23 +25,25 @@ const fileToDataURL = (file) => {
   });
 };
 
-// Defining an asynchronous function to receive a file object (from 'FILEINPUT' element),
-// and to display it in the 'PREVIEW' element (<img> element in the HTML page)
+// Defining an asynchronous function to receive a file object (from 'FILEINPUT' element), and to display it in the 'PREVIEW' element.
+
 const previewFile = async () => {
   let file = FILE_INPUT.files[0];
   try {
   let dataURL = await fileToDataURL(file); 
-  PREVIEW.src=dataURL;
-  IMAGE_DATA.value=dataURL;
+  PREVIEW.style.backgroundImage = `url(${dataURL})`;
+  IMAGE_DATA.value = dataURL;
   }catch(error) {
     alert(error);
   }
 };
 
 // LISTENING TO EVERY CHANGE OF FILE INPUT AND GENERATING A PREVIEW OF THE FILE
+
 FILE_INPUT.addEventListener("change", previewFile);
 
 // Defining a function to extract <data> segment of the data URL
+
 const extractDataSegment = () => {
   let dataURL = IMAGE_DATA.value;
   let numIndex = dataURL.indexOf("/9j");
@@ -50,6 +52,7 @@ const extractDataSegment = () => {
 };
 
 // Defining a function to validate the values entered in the form
+
 const validateForm = () => {
   let dataSeg = extractDataSegment();
   IMAGE_DATA.value = dataSeg;
@@ -65,6 +68,7 @@ const validateForm = () => {
 };
 
 // Defining an asynchronous function to post the validated form
+
 const postForm = async () => {
   let [image, name, shortDescription, description] = validateForm();
 
@@ -84,17 +88,18 @@ const postForm = async () => {
       }),
     }
   );
-  let responseBody = await fetchResponse.json();
-  CHARACTER_ID = responseBody.id;
-  localStorage.setItem("createdID",CHARACTER_ID);
   
   alert("Character has been created ! You will be redirected to the main page.");
   setTimeout(
     ()=> {window.location.replace("index.html")},
     1000);
-  
   };
 
 
-// LISTENING TO CLICK ON SAVE BUTTON AND POSTING THE FORM
+// LISTENING TO CLICK EVENT ON SAVE BUTTON TO POST THE FORM
+
 SAVE_BUTTON.addEventListener("click", postForm);
+
+// LISTENING TO CLICK EVENT ON RESET BUTTON TO RESET THE BACKGROUND IMAGE OF THE PREVIEW ELEMENT
+
+RESET_BUTTON.addEventListener("click", ()=>{PREVIEW.style.backgroundImage=""});
