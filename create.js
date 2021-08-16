@@ -10,7 +10,7 @@ const IMAGE_DATA = document.getElementById("image");
 const READER = new FileReader();
 const SAVE_BUTTON = document.getElementById("save");
 const DELETE_BUTTON = document.getElementById("delete");
-export let CHARACTER_ID="test";
+let CHARACTER_ID="test";
 
 // Creating a function that receives a file object and returns a Promise which resolves with the dataURL (contained in the 'PREVIEW.result' property).
 const fileToDataURL = (file) => {
@@ -86,10 +86,11 @@ const postForm = async () => {
   );
   let responseBody = await fetchResponse.json();
   CHARACTER_ID = responseBody.id;
+  localStorage.setItem("createdID",CHARACTER_ID);
   
   alert("Character has been created ! You will be redirected to the main page.");
   setTimeout(
-    ()=> {window.location.replace(`index.html?CHARACTER_ID=${CHARACTER_ID}`)},
+    ()=> {window.location.replace("index.html")},
     1000);
   
   };
