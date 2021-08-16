@@ -19,7 +19,7 @@ const fileToDataURL = (file) => {
       reject("Problem reading the file");
     };
   });
-}
+};
 
 // Defining an asynchronous function to receive a file object (from 'FILEINPUT' element),
 // and to display it in the 'PREVIEW' element (<img> element in the HTML page)
@@ -87,8 +87,20 @@ const postForm = async () => {
   setTimeout(
     ()=> {window.location.replace("index.html")},
     1000);
+  
+  
+  
+  
+  
   };
 
   
 // LISTENING TO CLICK ON SAVE BUTTON AND POSTING THE FORM
 SAVE_BUTTON.addEventListener("click", postForm);
+
+
+// const INDEX_PAGE=
+
+// INDEX_PAGE.addEventListener("load", () => {
+//   let DUMMY VAR = CHARACTER_ID;
+// })
