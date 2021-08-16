@@ -220,6 +220,19 @@ h1 {
 /*****************************************/
 /* START OF CREATE CHARACTER PAGE STYLES */
 
+.imgPreview {
+  border-radius: 50%;
+  margin:auto;
+  width: 150px;
+  height: 150px;
+  background-repeat:no-repeat;
+  background-size: cover;
+  border: white 3px solid;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .form {
   display:flex;
   flex-direction: column;
@@ -227,7 +240,7 @@ h1 {
 
 input {
   padding:0.5rem;
-  color:black; /* TO BE RESET TO WHITE ONCE OVERALL STYLING DONE*/
+  color:black; /* TO BE SET TO WHITE IF "MARKDOWN EDITOR" TOOL IN PLACE OF BASIC STANDARD HTML FORM*/
 }
 
 .input--hidden{
