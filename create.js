@@ -1,3 +1,38 @@
+//**************************//
+//**** INDEX.HTML PAGE *****//
+//**************************//
+
+// General approach: try to declare constants and functions in the same order of the HTML elements that they refer to.
+
+const TARGET = document.getElementById("target");
+const TEMPLATE = document.getElementById("tpl-char");
+
+// Defining an async function to get a character by its ID and to display the character in the template element of the index.html page
+const diplayCreatedChar = async (CHARACTER_ID) => {
+  try{
+  let response = await fetch(`https://character-database.becode.xyz/characters/${CHARACTER_ID}`);
+  if(!response.ok) {
+    throw new Error ("This ID doesn't exist");
+  }
+  let character = await response.json();
+
+  let clone = TEMPLATE.cloneNode(true).content;
+
+  clone.querySelector(".charmain__img").src = character.image;
+  clone.querySelector(".charmain__title").innerHTML = character.name;
+  clone.querySelector(".charmain__bio").innerHTML = character.shortDescription;
+  TARGET.appendChild(clone);
+
+  }catch (error){
+    console.error(error);
+  }
+};
+
+
+//**************************//
+//**** CREATE.HTML PAGE ****//
+//**************************//
+
 // General approach: try to declare constants and functions in the same order of the HTML elements that they refer to.
 
 const PREVIEW = document.getElementById("preview"); 
@@ -87,20 +122,10 @@ const postForm = async () => {
   setTimeout(
     ()=> {window.location.replace("index.html")},
     1000);
-  
-  
-  
-  
+  diplayCreatedChar(CHARACTER_ID);
   
   };
 
-  
+
 // LISTENING TO CLICK ON SAVE BUTTON AND POSTING THE FORM
 SAVE_BUTTON.addEventListener("click", postForm);
-
-
-// const INDEX_PAGE=
-
-// INDEX_PAGE.addEventListener("load", () => {
-//   let DUMMY VAR = CHARACTER_ID;
-// })

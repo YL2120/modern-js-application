@@ -32,7 +32,7 @@
     <hr class="charhead__division" />
 
     <main class="charmain">
-      <section class="charmain__cards">
+      <section class="charmain__cards" id="target">
         <div class="charmain__carditem">
           <div class="card__flex">
             <div class="charmain__img-div">
@@ -166,6 +166,19 @@
             <a href="character.html" class="charmain__bio--link" target="blank">See character</a>
           </button>
         </div>
+        <template id="tpl-char">
+          <div class="charmain__carditem">
+            <div class="charmain__img-div">
+              <img class="charmain__img" src="" alt="character's image" />
+            </div>
+            <h2 class="charmain__title"></h2>
+            <p class="charmain__bio">
+            </p>
+            <button class="charmain__bio--button" type="button">
+              <a href="character.html" class="charmain__bio--link" target="blank">See character</a>
+            </button>
+          </div>
+        </template>
       </section>
     </main>
 
@@ -176,5 +189,8 @@
         </a>
       </button>
     </footer>
+
+    <!--JS script-->
+    <script src="create.js"></script>
   </body>
 </html>
