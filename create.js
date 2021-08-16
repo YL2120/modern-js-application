@@ -1,35 +1,4 @@
 //**************************//
-//**** INDEX.HTML PAGE *****//
-//**************************//
-
-// General approach: try to declare constants and functions in the same order of the HTML elements that they refer to.
-
-const TARGET = document.getElementById("target");
-const TEMPLATE = document.getElementById("tpl-char");
-
-// Defining an async function to get a character by its ID and to display the character in the template element of the index.html page
-const diplayCreatedChar = async (CHARACTER_ID) => {
-  try{
-  let response = await fetch(`https://character-database.becode.xyz/characters/${CHARACTER_ID}`);
-  if(!response.ok) {
-    throw new Error ("This ID doesn't exist");
-  }
-  let character = await response.json();
-
-  let clone = TEMPLATE.cloneNode(true).content;
-
-  clone.querySelector(".charmain__img").src = character.image;
-  clone.querySelector(".charmain__title").innerHTML = character.name;
-  clone.querySelector(".charmain__bio").innerHTML = character.shortDescription;
-  TARGET.appendChild(clone);
-
-  }catch (error){
-    console.error(error);
-  }
-};
-
-
-//**************************//
 //**** CREATE.HTML PAGE ****//
 //**************************//
 
@@ -41,7 +10,7 @@ const IMAGE_DATA = document.getElementById("image");
 const READER = new FileReader();
 const SAVE_BUTTON = document.getElementById("save");
 const DELETE_BUTTON = document.getElementById("delete");
-let CHARACTER_ID="";
+export let CHARACTER_ID="test";
 
 // Creating a function that receives a file object and returns a Promise which resolves with the dataURL (contained in the 'PREVIEW.result' property).
 const fileToDataURL = (file) => {
@@ -120,9 +89,8 @@ const postForm = async () => {
   
   alert("Character has been created ! You will be redirected to the main page.");
   setTimeout(
-    ()=> {window.location.replace("index.html")},
+    ()=> {window.location.replace(`index.html?CHARACTER_ID=${CHARACTER_ID}`)},
     1000);
-  diplayCreatedChar(CHARACTER_ID);
   
   };
 
