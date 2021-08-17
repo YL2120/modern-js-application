@@ -5,6 +5,7 @@ const charLongDescription=document.querySelector(".characterCard__descriptionLon
 const charID=localStorage.getItem("charID");
 const UPDATE_BUTTON=document.getElementById("update");
 const DELETE_BUTTON=document.getElementById("delete");
+const SAVECHANGE_BUTTON=document.getElementById("saveChange");
 
 const displayCharacter = async () => {
     let fetchResponse= await fetch(`https://character-database.becode.xyz/characters/${charID}`);
@@ -19,7 +20,7 @@ displayCharacter();
 
 const CHAR_FORM=document.getElementById("CHAR_FORM");
 const CHAR_CONTAINER=document.getElementById("CHAR_CONTAINER");
-const TARGET=document.getElementById("TARGET");
+
 
 CHAR_FORM.style.display="none";
 
@@ -28,14 +29,47 @@ const displayForm = async () => {
     CHAR_FORM.style.display = "block";
     let fetchResponse = await fetch(`https://character-database.becode.xyz/characters/${charID}`);
     let responseBody = await fetchResponse.json();
-    PREVIEW.style.backgroundImage =`data:image/png;base64,${responseBody.image}`;
-    charName.innerHTML=responseBody.name;
-    charShortDescription.innerHTML=responseBody.shortDescription;
-    charLongDescription.innerHTML=responseBody.description;
+    PREVIEW.style.backgroundImage =`url(data:image/png;base64,${responseBody.image})`;
+    document.getElementById("image").value = responseBody.image;
+    document.getElementById("name").value = responseBody.name;
+    document.getElementById("shortDescription").value = responseBody.shortDescription;
+    document.getElementById("description").value = responseBody.description;
 
-}
+};
 UPDATE_BUTTON.addEventListener("click", displayForm);
-displayCharacter();
+
+
+  
+const updateCharacter = async () => {
+let [image, name, shortDescription, description] = validateForm();
+
+let fetchResponse = await fetch(
+    `https://character-database.becode.xyz/characters/${charID}`,
+    {
+    method: "PUT",
+    headers: {
+        "Accept": "application/json",
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+        name,
+        shortDescription,
+        description,
+        image,
+    }),
+    }
+);
+
+alert("Character has been updated! You will be redirected to the main page.");
+setTimeout(
+    ()=> {window.location.replace("index.html")},
+    1000);
+};
+  
+  
+// LISTENING TO CLICK EVENT ON SAVECHANGE BUTTON TO POST THE FORM
+
+SAVECHANGE_BUTTON.addEventListener("click", updateCharacter);
 
 
 

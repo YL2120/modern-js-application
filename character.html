@@ -26,7 +26,7 @@
             </h1>
             <hr>
         </header>
-        <main class="characterPage" id="TARGET">
+        <main class="characterPage">
             <section class="characterPage__container container" id="CHAR_CONTAINER">
                 <article class="container__characterCard characterCard">
                     <img class="characterCard__image" src="" alt="character image">
@@ -62,12 +62,12 @@
                 <form action="" method="PUT" id="createForm" class="createContainer__form form" >
                     <label for="file"><strong>Click here to upload image</strong></label><br>
                     <input type="file" name="file" id="file" class="input--hidden">
-                    <input type="text" name="image" id="image" class="textInput dataSegment input--hidden">
+                    <input type="text" name="image" id="image" class="textInput dataSegment ">
                     <input type="text" name="name" id="name" class="textInput" maxlength="20" placeholder="Enter your character's name. Example: Batman" >
                     <input type="text" name="shortDescription" id="shortDescription" class="textInput" maxlength="70" placeholder="Enter a short description of your character." >
                     <input type="text" name="longDescription" id="description" class="textInput" maxlength="350" placeholder="Enter the full description of your character." >
                     <div class="from__buttons">
-                        <button type="button" class="form__button button button--italicBlue" id="save">
+                        <button type="button" class="form__button button button--italicBlue" id="saveChange">
                             Save changes
                         </button>
                         <button type="reset" class="form__button button button--italicRed" id="reset">
