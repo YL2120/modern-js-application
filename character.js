@@ -35,3 +35,33 @@ const displayForm = async () => {
 
 }
 UPDATE_BUTTON.addEventListener("click", displayForm);
+displayCharacter();
+
+
+
+
+document.getElementById("delete").addEventListener("click",async()=>{
+
+    if(confirm("Are you sure you want to delete this character ?")){
+
+
+       let fetchDelete= await fetch(`https://character-database.becode.xyz/characters/${charID}`, {
+     method: 'DELETE',
+     headers:{
+        'Content-Type': 'application/json'
+    }
+    })
+
+    };
+
+    alert("Successful delete. You will be redirected to the main page");
+    setTimeout(
+        ()=> {window.location.replace("index.html")},
+        1000);
+      
+
+
+    
+
+
+});
