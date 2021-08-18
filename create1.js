@@ -59,7 +59,9 @@ const imgto64 = async () => {
 
 
 const Conversion = async () => {
+  if(IMAGE_DATA.value==null || PREVIEW.src!=`data:image/png;base64,${IMAGE_DATA.value}`){
   IMAGE_DATA.value = await imgto64();
+}
   let inputs = Array.from(document.querySelectorAll(".textInput"));
   let values = inputs.map(({ value }) => {
     return value.trim(); // Removes blank spaces before and after string input
