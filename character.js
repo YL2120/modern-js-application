@@ -7,6 +7,7 @@ const UPDATE_BUTTON=document.getElementById("update");
 const DELETE_BUTTON=document.getElementById("delete");
 const SAVECHANGE_BUTTON=document.getElementById("saveChange");
 
+
 const displayCharacter = async () => {
     let fetchResponse= await fetch(`https://character-database.becode.xyz/characters/${charID}`);
     let responseBody = await fetchResponse.json();
@@ -29,7 +30,7 @@ const displayForm = async () => {
     CHAR_FORM.style.display = "block";
     let fetchResponse = await fetch(`https://character-database.becode.xyz/characters/${charID}`);
     let responseBody = await fetchResponse.json();
-    PREVIEW.style.backgroundImage =`url(data:image/png;base64,${responseBody.image})`;
+    PREVIEW.src =`data:image/png;base64,${responseBody.image}`;
     document.getElementById("image").value = responseBody.image;
     document.getElementById("name").value = responseBody.name;
     document.getElementById("shortDescription").value = responseBody.shortDescription;
@@ -41,7 +42,7 @@ UPDATE_BUTTON.addEventListener("click", displayForm);
 
   
 const updateCharacter = async () => {
-let [image, name, shortDescription, description] = validateForm();
+    let [image, name,shortDescription, description] =await Conversion();
 
 let fetchResponse = await fetch(
     `https://character-database.becode.xyz/characters/${charID}`,

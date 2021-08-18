@@ -18,8 +18,7 @@ const template= async () =>{
     nameCard.innerHTML=character.name;
     shortDescriptionCard.innerHTML=character.shortDescription;
     buttonCard.addEventListener("click", ()=>{
-      openCharacter (character.id);
-      localStorage.setItem("charID", charID);
+      localStorage.setItem("charID", character.id);
     });
     target.appendChild(clone);
   
