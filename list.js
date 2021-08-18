@@ -1,8 +1,4 @@
 
-const openCharacter = (charID)  => {
-  localStorage.setItem("charID", charID);
-  window.open("character.html", '_blank');
-};
 
 const template= async () =>{
   let fetchResponse = await fetch("https://character-database.becode.xyz/characters");
@@ -23,6 +19,7 @@ const template= async () =>{
     shortDescriptionCard.innerHTML=character.shortDescription;
     buttonCard.addEventListener("click", ()=>{
       openCharacter (character.id);
+      localStorage.setItem("charID", charID);
     });
     target.appendChild(clone);
   
