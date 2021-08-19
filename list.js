@@ -1,8 +1,8 @@
+import { fetchR } from './fetch.js';
 
-
-const template= async () =>{
-  let fetchResponse = await fetch("https://character-database.becode.xyz/characters");
-  let responseBody = await fetchResponse.json();
+export const template= async () =>{
+  // let fetchResponse = await fetch("https://character-database.becode.xyz/characters");
+  let responseBody = await fetchR();//await fetchResponse.json();
   let target=document.getElementById("target");
   let tpl=document.getElementById("charnew");
 
@@ -25,7 +25,7 @@ const template= async () =>{
   });
 };
 
-template();
+// template();
 
 
 

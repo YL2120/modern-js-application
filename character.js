@@ -1,3 +1,6 @@
+import {Conversion} from './conversion.js';
+import { fetchID } from './fetchID.js';
+
 const charImage=document.querySelector(".characterCard__image");
 const charName=document.querySelector(".characterCard__name");
 const charShortDescription=document.querySelector(".characterCard__descriptionShort");
@@ -6,11 +9,13 @@ const charID=localStorage.getItem("charID");
 const UPDATE_BUTTON=document.getElementById("update");
 const DELETE_BUTTON=document.getElementById("delete");
 const SAVECHANGE_BUTTON=document.getElementById("saveChange");
+const PREVIEW = document.getElementById("preview__src");
 
 
 const displayCharacter = async () => {
-    let fetchResponse= await fetch(`https://character-database.becode.xyz/characters/${charID}`);
-    let responseBody = await fetchResponse.json();
+    // let fetchResponse= await fetch(`https://character-database.becode.xyz/characters/${charID}`);
+    // let responseBody = await fetchResponse.json();
+    let responseBody=await fetchID(charID);
     charImage.src=`data:image/png;base64,${responseBody.image}`;
     charName.innerHTML=responseBody.name;
     charShortDescription.innerHTML=responseBody.shortDescription;
@@ -28,8 +33,9 @@ CHAR_FORM.style.display="none";
 const displayForm = async () => {
     CHAR_CONTAINER.style.display = "none";
     CHAR_FORM.style.display = "block";
-    let fetchResponse = await fetch(`https://character-database.becode.xyz/characters/${charID}`);
-    let responseBody = await fetchResponse.json();
+    // let fetchResponse = await fetch(`https://character-database.becode.xyz/characters/${charID}`);
+    // let responseBody = await fetchResponse.json();
+    let responseBody=await fetchID(charID);
     PREVIEW.src =`data:image/png;base64,${responseBody.image}`;
     document.getElementById("image").value = responseBody.image;
     document.getElementById("name").value = responseBody.name;
