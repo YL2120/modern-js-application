@@ -4,7 +4,7 @@
 
 // General approach: try to declare constants and functions in the same order of the HTML elements that they refer to.
 
-const PREVIEW = document.getElementById("preview"); 
+const PREVIEW = document.getElementById("preview");
 const FILE_INPUT = document.getElementById("file");
 const IMAGE_DATA = document.getElementById("image");
 const READER = new FileReader();
@@ -14,7 +14,7 @@ const RESET_BUTTON = document.getElementById("reset");
 // Creating a function that receives a file object and returns a Promise which resolves with the dataURL (contained in the 'READER.result' property).
 
 const fileToDataURL = (file) => {
-  return new Promise((resolve,reject)=>{
+  return new Promise((resolve, reject) => {
     READER.readAsDataURL(file);
     READER.onload = () => {
       resolve(READER.result);
@@ -30,10 +30,10 @@ const fileToDataURL = (file) => {
 const previewFile = async () => {
   let file = FILE_INPUT.files[0];
   try {
-  let dataURL = await fileToDataURL(file); 
-  PREVIEW.style.backgroundImage = `url(${dataURL})`;
-  IMAGE_DATA.value = dataURL;
-  }catch(error) {
+    let dataURL = await fileToDataURL(file);
+    PREVIEW.style.backgroundImage = `url(${dataURL})`;
+    IMAGE_DATA.value = dataURL;
+  } catch (error) {
     alert(error);
   }
 };
@@ -60,7 +60,7 @@ const validateForm = () => {
   if (values.some(({ value }) => value === "")) {
     alert("Please fill in all fields and upload an image");
     return;
-    };
+  }
   let trimmedValues = values.map(({ value }) => {
     return value.trim(); // Removes blank spaces before and after string input
   });
@@ -77,8 +77,8 @@ const postForm = async () => {
     {
       method: "POST",
       headers: {
-        "Accept": "application/json",
-        "Content-Type": "application/json"
+        Accept: "application/json",
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
         name,
@@ -88,13 +88,14 @@ const postForm = async () => {
       }),
     }
   );
-  
-  alert("Character has been created ! You will be redirected to the main page.");
-  setTimeout(
-    ()=> {window.location.replace("index.html")},
-    1000);
-  };
 
+  alert(
+    "Character has been created ! You will be redirected to the main page."
+  );
+  setTimeout(() => {
+    window.location.replace("index.html");
+  }, 1000);
+};
 
 // LISTENING TO CLICK EVENT ON SAVE BUTTON TO POST THE FORM
 
@@ -102,4 +103,6 @@ SAVE_BUTTON.addEventListener("click", postForm);
 
 // LISTENING TO CLICK EVENT ON RESET BUTTON TO RESET THE BACKGROUND IMAGE OF THE PREVIEW ELEMENT
 
-RESET_BUTTON.addEventListener("click", ()=>{PREVIEW.style.backgroundImage=""});
+RESET_BUTTON.addEventListener("click", () => {
+  PREVIEW.style.backgroundImage = "";
+});

@@ -1,36 +1,27 @@
-import { fetchR } from './fetch.js';
+import { fetchR } from "./fetch.js";
 
-export const template= async () =>{
+export const template = async () => {
   // let fetchResponse = await fetch("https://character-database.becode.xyz/characters");
-  let responseBody = await fetchR();//await fetchResponse.json();
-  let target=document.getElementById("target");
-  let tpl=document.getElementById("charnew");
+  let responseBody = await fetchR(); //await fetchResponse.json();
+  let target = document.getElementById("target");
+  let tpl = document.getElementById("charnew");
 
-  responseBody.forEach(character => {
-    let clone=tpl.cloneNode(true).content;
-    let imageCard=clone.querySelector('.charmain__img');
-    let nameCard=clone.querySelector('.charmain__title');
-    let shortDescriptionCard=clone.querySelector('.charmain__bio');
-    let buttonCard=clone.querySelector(".charmain__bio--button");
+  responseBody.forEach((character) => {
+    let clone = tpl.cloneNode(true).content;
+    let imageCard = clone.querySelector(".charmain__img");
+    let nameCard = clone.querySelector(".charmain__title");
+    let shortDescriptionCard = clone.querySelector(".charmain__bio");
+    let buttonCard = clone.querySelector(".charmain__bio--button");
     // let linkCard=clone.querySelector(".charmain__link");
-  
-    imageCard.src=`data:image/png;base64,${character.image}`;
-    nameCard.innerHTML=character.name;
-    shortDescriptionCard.innerHTML=character.shortDescription;
-    buttonCard.addEventListener("click", ()=>{
+
+    imageCard.src = `data:image/png;base64,${character.image}`;
+    nameCard.innerHTML = character.name;
+    shortDescriptionCard.innerHTML = character.shortDescription;
+    buttonCard.addEventListener("click", () => {
       localStorage.setItem("charID", character.id);
     });
     target.appendChild(clone);
-  
   });
 };
 
 // template();
-
-
-
-
-
-
-
-

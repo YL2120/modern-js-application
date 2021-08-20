@@ -1,16 +1,16 @@
-import  { postForm } from './post.js';
+import "regenerator-runtime";
+
+import { postForm } from "./post.js";
 const PREVIEW = document.getElementById("preview__src");
-const IMAGE_DATA = document.getElementById("image");
+// const IMAGE_DATA = document.getElementById("image");
 const FILE_INPUT = document.getElementById("file");
-
-
 
 /* PREVIEW */
 
 // PREVIEW FUNCTION
 
 function previewFile() {
-  const preview = document.querySelector("img");
+  // const preview = document.querySelector("img");
   const file = document.querySelector("input[type=file]").files[0];
   const reader = new FileReader();
   reader.addEventListener(
@@ -31,14 +31,9 @@ function previewFile() {
 // PREVIEW ACTION
 FILE_INPUT.addEventListener("change", previewFile);
 
-
-
-(async()=>{
-
-  
+async () => {
   await postForm();
-})
-
+};
 
 // /* DATA URL */
 
@@ -68,8 +63,6 @@ FILE_INPUT.addEventListener("change", previewFile);
 //   return sliceData;
 // };
 
-
-
 // const Conversion = async () => {
 //   if(IMAGE_DATA.value==null || PREVIEW.src!=`data:image/png;base64,${IMAGE_DATA.value}`){
 //   IMAGE_DATA.value = await imgto64();
@@ -87,17 +80,12 @@ FILE_INPUT.addEventListener("change", previewFile);
 //   return values;
 // };
 
-
-
 // values.push(sliceData);
 // console.log(values);
 
 //let id = null;
 
 // console.log([image, name,shortDescription, description]); //4
-
-
-
 
 // const postForm=async () => {
 //   let [image, name, shortDescription, description] = await Conversion();
@@ -129,9 +117,8 @@ FILE_INPUT.addEventListener("change", previewFile);
 //   }, 1000);
 // }
 
- const el = document.getElementById('saveCh');
- if(el){
-  el.addEventListener('click',postForm);
+const el = document.getElementById("saveCh");
+if (el) {
+  el.addEventListener("click", postForm);
 }
 // document.getElementById("saveCh").addEventListener("click",);
-

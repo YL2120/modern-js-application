@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "parcel index.html",
-    "build": "parcel build index.html --no-minify"
+    "build": "rm -rf .cache dist && parcel build index.html create.html character.html  --no-minify --out-dir docs --public-url ./"
   },
   "repository": {
     "type": "git",
@@ -22,5 +22,11 @@
   "dependencies": {
     "moment": "^2.29.1",
     "regenerator-runtime": "^0.13.9"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "husky": "^7.0.1",
+    "lint-staged": "^11.1.2",
+    "prettier": "2.3.2"
   }
 }

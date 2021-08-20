@@ -1,3 +1,5 @@
-import { template } from './list.js';
+import "regenerator-runtime";
+
+import { template } from "./list.js";
 
 template();
