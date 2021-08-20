@@ -10,19 +10,13 @@ A Comics fan client would like to manage his favorites characters on a dashboard
 ## End result :
 
 **Github Page URL :**
-_COMING SOON_
+https://yl2120.github.io/modern-js-application/
 
 ## Project dates:
 
 Project start: Tuesday 10 August 2021
-Project end: Tuesday 17 August 2021
+Project end: Tuesday 20 August 2021
 
-## Project status (latest first):
-
-| DATE       | STATUS                           |
-| ---------- | -------------------------------- |
-| 2021-08-11 | HTML and CSS of the 3 pages      |
-| 2021-08-10 | Created the present README file. |
 
 ## Project type and goals:
 
@@ -36,6 +30,8 @@ Group project - consolidation challenge<br>
 - Use a REST API with HTTP requests
 - Create a typical asynchronous flow : send asynchronous (promises or async/await) requests to a remote server and process the results
 - DOM manipulation: changing the DOM based on results of HTTP requests<br>
+- Refactoring
+- import/export
 
 ## Detailed instructions:
 
