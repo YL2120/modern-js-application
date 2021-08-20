@@ -1,4 +1,4 @@
-import "regenerator-runtime";
+import "regenerator-runtime/runtime.js";
 
 import { Conversion } from "./conversion.js";
 import { fetchID } from "./fetchID.js";

@@ -1,4 +1,4 @@
-import "regenerator-runtime";
+import "regenerator-runtime/runtime.js";
 
 import { template } from "./list.js";
 
