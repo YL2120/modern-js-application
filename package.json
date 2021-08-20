@@ -1,0 +1,26 @@
+{
+  "name": "modern-js-application",
+  "version": "1.0.0",
+  "description": ">*as part of the advanced Javascript exercises.*",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "parcel index.html",
+    "build": "parcel build index.html --no-minify"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YL2120/modern-js-application.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/YL2120/modern-js-application/issues"
+  },
+  "homepage": "https://github.com/YL2120/modern-js-application#readme",
+  "dependencies": {
+    "moment": "^2.29.1",
+    "regenerator-runtime": "^0.13.9"
+  }
+}
