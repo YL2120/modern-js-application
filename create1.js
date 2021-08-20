@@ -1,4 +1,4 @@
-// import "regenerator-runtime";
+import "regenerator-runtime";
 
 import { postForm } from "./post.js";
 const PREVIEW = document.getElementById("preview__src");
